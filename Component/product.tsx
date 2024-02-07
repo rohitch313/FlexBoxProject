@@ -1,9 +1,20 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { View, Text, StyleSheet, ScrollView, ActivityIndicator, FlatList, Button,Image, TextInput, Modal } from 'react-native';
-
+import {useDispatch} from 'react-redux'
+import { addtoCart } from './redux/action';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-function Product(props:any): React.JSX.Element {
+import { ADD_TO_CART } from './redux/constant';
 
+
+
+
+function Product(props:any): React.JSX.Element {
+    const dispatch =useDispatch()
+const handleAddToCart =()=>{
+    console.warn("call",props.item)
+   dispatch(addtoCart(props.item))
+
+}
 
 
     return (
@@ -12,7 +23,7 @@ function Product(props:any): React.JSX.Element {
         <Text style={{fontSize:20}}>{props.item.price}</Text>
         <Text style={{fontSize:20}}>{props.item.color}</Text>
         <Image style={{height:200,width:200,resizeMode: 'contain' }}source={{uri:props.item.image}}/>
-        <Button title='Add to Cart'/>
+        <Button title='Add to Cart'onPress={handleAddToCart}/>
        
         </View>
     );
