@@ -1,10 +1,8 @@
 import React, { useEffect, useState,useRef } from 'react';
 import { View, Text, StyleSheet, ScrollView,ActivityIndicator, FlatList, Button, TextInput, Modal } from 'react-native';
-import Customer from './Services/interface';
-import {postNumber} from './Services/api';
-import { fetchCustomerData } from './Services/api';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
-function App(): React.JSX.Element {
+function AppAsync(): React.JSX.Element {
 
   const [Name,setName]=useState('');
  
@@ -51,4 +49,4 @@ padding:16,
 })
 
 
-export default App;
+export default AppAsync;
