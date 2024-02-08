@@ -3,16 +3,11 @@ import { View, Text, StyleSheet, ScrollView,ActivityIndicator, FlatList, Button,
 import {useSelector} from 'react-redux';
 import { Store } from 'redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useNavigation } from '@react-navigation/native';
 
-function Header(): React.JSX.Element {
 
-  const CartData = useSelector((state) => state.cast);
-  const [cartitems,setCarItems]=useState(0)
- useEffect(()=>{
- setCarItems(CartData.length)
- },[CartData]
- )
+function Customer(): React.JSX.Element {
+
+  
  
  
 
@@ -20,15 +15,14 @@ function Header(): React.JSX.Element {
 
   return (
     <View >
-     
- <Text style={styles.container}>{cartitems}</Text>
+ <Text style={styles.container}>Cutomer list screen</Text>
     </View>
   );
 }
 
 const styles =StyleSheet.create({
   container:{
-   textAlign:'right',
+   textAlign:'center',
    color:'green',
    fontWeight:'bold',
    fontSize:30
@@ -37,4 +31,4 @@ const styles =StyleSheet.create({
 })
 
 
-export default Header;
+export default Customer;
